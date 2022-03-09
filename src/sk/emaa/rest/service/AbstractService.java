@@ -26,6 +26,7 @@ public abstract class AbstractService {
 		Morphia morphia = new Morphia();
 		morphia.mapPackage("sk.emaa.rest.service.model");
 		Datastore datastore = morphia.createDatastore(mongoClient, "emaa");
+		// len tak skusam nieco :-)
 		datastore.ensureIndexes();
 		
 		MorphiaCursor<User> cursor = datastore.find(User.class).filter("token", authHeaders.get(0)).find();
